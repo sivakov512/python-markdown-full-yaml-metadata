@@ -12,9 +12,10 @@ setup(
     install_requires=['Markdown', 'PyYAML'],
     keywords='markdown yaml meta metadata',
     license='MIT',
-    long_description=long_description,
+    long_description_markdown_filename='README.md',
     name='makrdown_full_yaml_metadata',
     py_modules=['full_yaml_metadata'],
+    setup_requires=['setuptools-markdown'],
     url=url,
-    version='0.0.2',
+    version='0.0.3',
 )
