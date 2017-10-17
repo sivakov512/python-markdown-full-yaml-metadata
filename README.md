@@ -1,11 +1,14 @@
-# YAML Meta Data Extension for [Python-Markdown](https://github.com/waylan/Python-Markdown)
+# YAML metadata extension for [Python-Markdown](https://github.com/waylan/Python-Markdown)
 
 [![Build Status](https://travis-ci.org/cryptomaniac512/python-markdown-full-yaml-metadata.svg?branch=master)](https://travis-ci.org/cryptomaniac512/python-markdown-full-yaml-metadata)
 [![Coverage Status](https://coveralls.io/repos/github/cryptomaniac512/python-markdown-full-yaml-metadata/badge.svg)](https://coveralls.io/github/cryptomaniac512/python-markdown-full-yaml-metadata)
+![Python versions](https://img.shields.io/badge/python-3.5,%203.6-blue.svg)
 
 This extension adds YAML meta data handling to markdown with all YAML features.
 
-As in the original, meta data is parsed but not used in processing.
+As in the original, metadata is parsed but not used in processing.
+
+Metadata parsed as is by PyYaml and without additional transformations, so this plugin is not compatible with original [Meta-Data extension](https://pythonhosted.org/Markdown/extensions/meta_data.html).
 
 
 ## Basic Usage
