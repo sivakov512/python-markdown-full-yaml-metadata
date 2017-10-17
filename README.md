@@ -14,21 +14,24 @@ Metadata parsed as is by PyYaml and without additional transformations, so this 
 
 ## Basic Usage
 
-    >>> import markdown
-    >>> text = """---
-    ... Title: What is Lorem Ipsum?
-    ... Categories:
-		- Lorem Ipsum
-		- Stupid content
-    ... ...
-    ...
-    ... Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    ... """
-    >>> md = markdown.Markdown(['full_yaml_metadata'])
-    >>> print(md.convert(text))
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-    >>> print(md.Meta)
-    {'title': 'What is Lorem Ipsum?', 'categories': ['Lorem Ipsum', 'Stupid content']}
+``` python
+import markdown
+
+
+text = """---
+title: What is Lorem Ipsum?
+categories:
+	- Lorem Ipsum
+	- Stupid content
+...
+
+Lorem Ipsum is simply dummy text.
+"""
+
+md = markdown.Markdown(['full_yaml_metadata'])
+md.convert(text) == '<p>Lorem Ipsum is simply dummy text.</p>'
+md.Meta == {'title': 'What is Lorem Ipsum?', 'categories': ['Lorem Ipsum', 'Stupid content']}
+```
 	
 ## Python versions compatibility
 
