@@ -6,3 +6,4 @@
 .dir-locals.el
 .tox
 __pycache__
+dist

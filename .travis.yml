@@ -15,3 +15,10 @@ script:
 
 after_success:
   - coveralls
+
+deploy:
+  provider: pypi
+  user: $PyPiLogin
+  password: $PyPiPassword
+  on:
+    tags: true
