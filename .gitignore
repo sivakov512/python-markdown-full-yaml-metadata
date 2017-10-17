@@ -1,0 +1,8 @@
+*#
+*.egg-info
+*.py[cod]
+*~
+.cache
+.dir-locals.el
+.tox
+__pycache__
