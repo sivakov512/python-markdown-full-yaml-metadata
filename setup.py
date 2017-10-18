@@ -22,5 +22,5 @@ setup(
     name='makrdown_full_yaml_metadata',
     py_modules=['full_yaml_metadata'],
     url=url,
-    version='0.0.3',
+    version='0.0.4',
 )

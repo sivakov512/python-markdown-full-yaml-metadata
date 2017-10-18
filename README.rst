@@ -47,5 +47,5 @@ For python 3.4 you must install
 .. |Coverage Status| image:: https://coveralls.io/repos/github/cryptomaniac512/python-markdown-full-yaml-metadata/badge.svg
    :target: https://coveralls.io/github/cryptomaniac512/python-markdown-full-yaml-metadata
 .. |Python versions| image:: https://img.shields.io/badge/python-3.4,%203.5,%203.6-blue.svg
-.. |PyPi| image:: https://img.shields.io/badge/PyPi-0.0.3-yellow.svg
+.. |PyPi| image:: https://img.shields.io/badge/PyPi-0.0.4-yellow.svg
    :target: https://pypi.python.org/pypi/makrdown_full_yaml_metadata
