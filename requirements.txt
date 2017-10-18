@@ -7,4 +7,3 @@ flake8-isort
 flake8-print
 isort
 pytest
-setuptools-markdown

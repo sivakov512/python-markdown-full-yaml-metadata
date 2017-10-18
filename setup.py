@@ -5,6 +5,12 @@ long_description = (
 )
 url = 'https://github.com/cryptomaniac512/python-markdown-full-yaml-metadata'
 
+
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
+
 setup(
     author='Nikita Sivakov',
     author_email='cryptomaniac.512@gmail.com',
@@ -12,10 +18,9 @@ setup(
     install_requires=['Markdown', 'PyYAML'],
     keywords='markdown yaml meta metadata',
     license='MIT',
-    long_description_markdown_filename='README.md',
+    long_description=readme(),
     name='makrdown_full_yaml_metadata',
     py_modules=['full_yaml_metadata'],
-    setup_requires=['setuptools-markdown'],
     url=url,
     version='0.0.3',
 )
