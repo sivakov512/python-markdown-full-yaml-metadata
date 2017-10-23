@@ -1,14 +1,6 @@
 from setuptools import setup
 
-long_description = (
-    'This extenstions allow to use all YAML features in Markdown metadata part'
-)
 url = 'https://github.com/cryptomaniac512/python-markdown-full-yaml-metadata'
-
-
-def readme():
-    with open('README.rst') as f:
-        return f.read()
 
 
 setup(
@@ -18,9 +10,10 @@ setup(
     install_requires=['Markdown', 'PyYAML'],
     keywords='markdown yaml meta metadata',
     license='MIT',
-    long_description=readme(),
+    long_description_markdown_filename='README.md',
     name='makrdown_full_yaml_metadata',
     py_modules=['full_yaml_metadata'],
+    setup_requires=['setuptools-markdown'],
     url=url,
-    version='0.0.4',
+    version='0.0.5',
 )
