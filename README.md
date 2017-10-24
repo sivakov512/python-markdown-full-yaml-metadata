@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/cryptomaniac512/python-markdown-full-yaml-metadata.svg?branch=master)](https://travis-ci.org/cryptomaniac512/python-markdown-full-yaml-metadata)
 [![Coverage Status](https://coveralls.io/repos/github/cryptomaniac512/python-markdown-full-yaml-metadata/badge.svg)](https://coveralls.io/github/cryptomaniac512/python-markdown-full-yaml-metadata)
 ![Python versions](https://img.shields.io/badge/python-3.4,%203.5,%203.6-blue.svg)
-[![PyPi](https://img.shields.io/badge/PyPi-0.0.5-yellow.svg)](https://pypi.python.org/pypi/makrdown_full_yaml_metadata)
+[![PyPi](https://img.shields.io/badge/PyPi-0.0.1-yellow.svg)](https://pypi.python.org/pypi/makrdown-full-yaml-metadata)
 
 This extension adds YAML meta data handling to markdown with all YAML features.
 
