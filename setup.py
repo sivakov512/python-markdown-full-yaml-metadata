@@ -11,10 +11,10 @@ setup(
     keywords='markdown yaml meta metadata',
     license='MIT',
     long_description_markdown_filename='README.md',
-    name='makrdown-full-yaml-metadata',
+    name='markdown-full-yaml-metadata',
     py_modules=['full_yaml_metadata'],
     python_requires='>=3.4',
     setup_requires=['setuptools-markdown'],
     url=url,
-    version='0.0.1',
+    version='0.0.2',
 )
