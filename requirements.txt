@@ -1,5 +1,5 @@
 Markdown==2.6.9
-PyYAML==3.13
+PyYAML==4.2b4
 Pygments==2.2.0
 flake8-commas==0.4.3
 flake8-debugger==1.4.0
