@@ -1,7 +1,7 @@
 # YAML metadata extension for [Python-Markdown](https://github.com/waylan/Python-Markdown)
 
-[![Build Status](https://travis-ci.org/cryptomaniac512/python-markdown-full-yaml-metadata.svg?branch=master)](https://travis-ci.org/cryptomaniac512/python-markdown-full-yaml-metadata)
-[![Coverage Status](https://coveralls.io/repos/github/cryptomaniac512/python-markdown-full-yaml-metadata/badge.svg)](https://coveralls.io/github/cryptomaniac512/python-markdown-full-yaml-metadata)
+[![Build Status](https://travis-ci.org/sivakov512/python-markdown-full-yaml-metadata.svg?branch=master)](https://travis-ci.org/sivakov512/python-markdown-full-yaml-metadata)
+[![Coverage Status](https://coveralls.io/repos/github/sivakov512/python-markdown-full-yaml-metadata/badge.svg)](https://coveralls.io/github/sivakov512/python-markdown-full-yaml-metadata)
 ![Python versions](https://img.shields.io/badge/python-3.4,%203.5,%203.6-blue.svg)
 [![PyPi](https://img.shields.io/pypi/v/markdown-full-yaml-metadata.svg)](https://pypi.python.org/pypi/markdown-full-yaml-metadata)
 
