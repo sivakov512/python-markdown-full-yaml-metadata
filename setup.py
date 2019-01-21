@@ -7,7 +7,7 @@ setup(
     author='Nikita Sivakov',
     author_email='cryptomaniac.512@gmail.com',
     description='YAML metadata extension for Python-Markdown',
-    install_requires=['Markdown', 'PyYAML'],
+    install_requires=['Markdown', 'PyYAML==3.13'],
     keywords='markdown yaml meta metadata',
     license='MIT',
     long_description_markdown_filename='README.md',
@@ -16,5 +16,5 @@ setup(
     python_requires='>=3.4',
     setup_requires=['setuptools-markdown'],
     url=url,
-    version='0.0.2',
+    version='0.0.3',
 )
