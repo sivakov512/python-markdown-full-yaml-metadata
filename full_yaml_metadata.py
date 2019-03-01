@@ -41,5 +41,5 @@ class FullYamlMetadataPreprocessor(markdown.preprocessors.Preprocessor):
         return meta_lines, lines
 
 
-def makeExtension(configs: dict={}):
-    return FullYamlMetadataExtension(configs=configs)
+def makeExtension(*args, **kwargs):
+    return FullYamlMetadataExtension(*args, **kwargs)
