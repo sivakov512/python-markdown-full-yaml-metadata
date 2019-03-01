@@ -23,7 +23,7 @@ Contrary to popular belief, Lorem Ipsum is not simply random text.
      '<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>'),  # noqa
 ])
 def test_plain_metadata(source, expected_meta, expected_body):
-    md = markdown.Markdown(['full_yaml_metadata'])
+    md = markdown.Markdown(extensions = ['full_yaml_metadata'])
     assert md.convert(source) == expected_body
     assert md.Meta == expected_meta
 
