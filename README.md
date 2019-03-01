@@ -21,18 +21,18 @@ import markdown
 text = """---
 title: What is Lorem Ipsum?
 categories:
-	- Lorem Ipsum
-	- Stupid content
+  - Lorem Ipsum
+  - Stupid content
 ...
 
 Lorem Ipsum is simply dummy text.
 """
 
-md = markdown.Markdown(['full_yaml_metadata'])
+md = markdown.Markdown(extensions = ['full_yaml_metadata'])
 md.convert(text) == '<p>Lorem Ipsum is simply dummy text.</p>'
 md.Meta == {'title': 'What is Lorem Ipsum?', 'categories': ['Lorem Ipsum', 'Stupid content']}
 ```
-	
+
 ## Python versions compatibility
 
 This plugin tested with python versions 3.4, 3.5 and 3.6.
