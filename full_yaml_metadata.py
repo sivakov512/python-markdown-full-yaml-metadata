@@ -6,10 +6,13 @@ import yaml
 
 class FullYamlMetadataExtension(markdown.Extension):
     """Extension for parsing YAML metadata part with Python-Markdown."""
-    def extendMarkdown(self, md: markdown.Markdown, md_globals: dict):
+    def extendMarkdown(self, md: markdown.Markdown, *args, **kwargs):
         md.Meta = None
-        md.preprocessors.add(
-            'full_yaml_metadata', FullYamlMetadataPreprocessor(md), '_begin')
+        md.preprocessors.register(
+            FullYamlMetadataPreprocessor(md),
+            'full_yaml_metadata',
+            1,
+        )
 
 
 class FullYamlMetadataPreprocessor(markdown.preprocessors.Preprocessor):
@@ -21,7 +24,7 @@ class FullYamlMetadataPreprocessor(markdown.preprocessors.Preprocessor):
     def run(self, lines: list) -> list:
         meta_lines, lines = self.split_by_meta_and_content(lines)
 
-        self.markdown.Meta = yaml.load('\n'.join(meta_lines))
+        self.md.Meta = yaml.load('\n'.join(meta_lines))
         return lines
 
     def split_by_meta_and_content(self, lines: list) -> typing.Tuple[list]:
