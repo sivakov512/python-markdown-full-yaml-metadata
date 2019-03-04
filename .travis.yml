@@ -13,6 +13,7 @@ install:
 
 script:
   - flake8
+  - black --check ./
   - tox
 
 after_success:
