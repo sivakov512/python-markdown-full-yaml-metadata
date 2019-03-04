@@ -21,6 +21,6 @@ setup(
     py_modules=["full_yaml_metadata"],
     python_requires=">=3.6",
     setup_requires=["setuptools-markdown"],
-    version="0.0.4",
+    version="1.0.0",
     url="https://github.com/sivakov512/python-markdown-full-yaml-metadata",
 )
