@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/sivakov512/python-markdown-full-yaml-metadata.svg?branch=master)](https://travis-ci.org/sivakov512/python-markdown-full-yaml-metadata)
 [![Coverage Status](https://coveralls.io/repos/github/sivakov512/python-markdown-full-yaml-metadata/badge.svg)](https://coveralls.io/github/sivakov512/python-markdown-full-yaml-metadata)
-![Python versions](https://img.shields.io/badge/python-3.4,%203.5,%203.6,%203.7-blue.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+![Python versions](https://img.shields.io/badge/python-3.6,%203.7-blue.svg)
 [![PyPi](https://img.shields.io/pypi/v/markdown-full-yaml-metadata.svg)](https://pypi.python.org/pypi/markdown-full-yaml-metadata)
 
 This extension adds YAML meta data handling to markdown with all YAML features.
@@ -35,6 +36,4 @@ md.Meta == {'title': 'What is Lorem Ipsum?', 'categories': ['Lorem Ipsum', 'Stup
 
 ## Python versions compatibility
 
-This plugin tested with python versions 3.4, 3.5, 3.6 and 3.7.
-
-For python 3.4 you must install [typing](https://pypi.python.org/pypi/typing)
+This plugin tested with python versions 3.6 and 3.7.
