@@ -1,9 +1,9 @@
-*#
 *.egg-info
 *.py[cod]
-*~
+*[~#]
 .cache
 .dir-locals.el
 .tox
+.vimrc
 __pycache__
 dist
