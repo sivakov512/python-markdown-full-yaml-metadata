@@ -23,7 +23,7 @@ Contrary to popular belief, Lorem Ipsum is not simply random text.
      '<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>'),  # noqa
 ])
 def test_plain_metadata(source, expected_meta, expected_body):
-    md = markdown.Markdown(['full_yaml_metadata'])
+    md = markdown.Markdown(extensions=['full_yaml_metadata'])
     assert md.convert(source) == expected_body
     assert md.Meta == expected_meta
 
@@ -55,7 +55,7 @@ Contrary to popular belief, Lorem Ipsum is not simply random text.
      '<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>'),  # noqa
 ])
 def test_metadata_with_lists(source, expected_meta, expected_body):
-    md = markdown.Markdown(['full_yaml_metadata'])
+    md = markdown.Markdown(extensions=['full_yaml_metadata'])
     assert md.convert(source) == expected_body
     assert md.Meta == expected_meta
 
@@ -87,7 +87,7 @@ Contrary to popular belief, Lorem Ipsum is not simply random text.
      '<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>'),  # noqa
 ])
 def test_metadata_with_dicts(source, expected_meta, expected_body):
-    md = markdown.Markdown(['full_yaml_metadata'])
+    md = markdown.Markdown(extensions=['full_yaml_metadata'])
     assert md.convert(source) == expected_body
     assert md.Meta == expected_meta
 
@@ -99,11 +99,11 @@ def test_metadata_with_dicts(source, expected_meta, expected_body):
      '<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>'),  # noqa
 ])
 def test_without_metadata(source, expected_body):
-    md = markdown.Markdown(['full_yaml_metadata'])
+    md = markdown.Markdown(extensions=['full_yaml_metadata'])
     assert md.convert(source) == expected_body
     assert not md.Meta
 
 
 def test_meta_is_acceccable_before_parsing():
-    md = markdown.Markdown(['full_yaml_metadata'])
+    md = markdown.Markdown(extensions=['full_yaml_metadata'])
     assert not md.Meta
