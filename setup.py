@@ -12,7 +12,7 @@ setup(
     author="Nikita Sivakov",
     author_email="sivakov512@gmail.com",
     description="YAML metadata extension for Python-Markdown",
-    install_requires=["Markdown~=3.0", "PyYAML>=3.13"],
+    install_requires=["Markdown~=3.0", "PyYAML~=5.0"],
     keywords="markdown yaml meta metadata",
     license="MIT",
     long_description=read("README.md"),
