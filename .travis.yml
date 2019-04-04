@@ -9,12 +9,12 @@ python:
   - "3.7"
 
 install:
-  - pip install coveralls tox-travis -r requirements.txt
+  - pip install coveralls -r requirements.txt
 
 script:
   - flake8
   - black --check ./
-  - tox
+  - coverage run --source full_yaml_metadata -m setup test
 
 after_success:
   - coveralls

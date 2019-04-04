@@ -24,7 +24,7 @@ class FullYamlMetadataPreprocessor(markdown.preprocessors.Preprocessor):
     def run(self, lines: list) -> list:
         meta_lines, lines = self.split_by_meta_and_content(lines)
 
-        self.md.Meta = yaml.load("\n".join(meta_lines))
+        self.md.Meta = yaml.load("\n".join(meta_lines), Loader=yaml.FullLoader)
         return lines
 
     def split_by_meta_and_content(self, lines: list) -> typing.Tuple[list]:

@@ -12,7 +12,7 @@ setup(
     author="Nikita Sivakov",
     author_email="sivakov512@gmail.com",
     description="YAML metadata extension for Python-Markdown",
-    install_requires=["Markdown~=3.0", "PyYAML>=3.13"],
+    install_requires=["Markdown~=3.0", "PyYAML~=5.0"],
     keywords="markdown yaml meta metadata",
     license="MIT",
     long_description=read("README.md"),
@@ -20,6 +20,8 @@ setup(
     name="markdown-full-yaml-metadata",
     py_modules=["full_yaml_metadata"],
     python_requires=">=3.6",
-    version="1.1.0",
+    setup_requires=["pytest-runner"],
+    tests_require=["pytest"],
+    version="2.0.0",
     url="https://github.com/sivakov512/python-markdown-full-yaml-metadata",
 )

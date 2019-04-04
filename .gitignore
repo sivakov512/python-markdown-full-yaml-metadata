@@ -3,7 +3,8 @@
 *[~#]
 .cache
 .dir-locals.el
-.tox
+.eggs
 .vimrc
 __pycache__
+build
 dist
