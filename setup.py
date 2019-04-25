@@ -20,7 +20,7 @@ setup(
     name="markdown-full-yaml-metadata",
     py_modules=["full_yaml_metadata"],
     python_requires=">=3.6",
-    version="2.0.0",
+    version="2.0.1",
     url="https://github.com/sivakov512/python-markdown-full-yaml-metadata",
     classifiers=[
         "Programming Language :: Python",
