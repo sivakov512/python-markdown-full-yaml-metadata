@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/sivakov512/python-markdown-full-yaml-metadata.svg?branch=master)](https://travis-ci.org/sivakov512/python-markdown-full-yaml-metadata)
 [![Coverage Status](https://coveralls.io/repos/github/sivakov512/python-markdown-full-yaml-metadata/badge.svg)](https://coveralls.io/github/sivakov512/python-markdown-full-yaml-metadata)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
-![Python versions](https://img.shields.io/badge/python-3.6,%203.7-blue.svg)
+[![Python versions](https://img.shields.io/pypi/pyversions/markdown-full-yaml-metadata.svg)](https://pypi.python.org/pypi/markdown-full-yaml-metadata)
 [![PyPi](https://img.shields.io/pypi/v/markdown-full-yaml-metadata.svg)](https://pypi.python.org/pypi/markdown-full-yaml-metadata)
 
 This extension adds YAML meta data handling to markdown with all YAML features.
@@ -33,6 +33,31 @@ md = markdown.Markdown(extensions = ['full_yaml_metadata'])
 md.convert(text) == '<p>Lorem Ipsum is simply dummy text.</p>'
 md.Meta == {'title': 'What is Lorem Ipsum?', 'categories': ['Lorem Ipsum', 'Stupid content']}
 ```
+
+## Development and contribution
+
+* install project dependencies
+```bash
+python setup.py develop
+```
+
+* install linting, formatting and testing tools
+```bash
+pip install -r requirements.txt
+```
+
+* run tests
+```bash
+pytest
+```
+
+* run linters
+```bash
+flake8
+black --check ./
+```
+
+* feel free to contribute!
 
 ## Python versions compatibility
 
