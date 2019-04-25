@@ -22,4 +22,9 @@ setup(
     python_requires=">=3.6",
     version="2.0.0",
     url="https://github.com/sivakov512/python-markdown-full-yaml-metadata",
+    classifiers=[
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+    ],
 )
