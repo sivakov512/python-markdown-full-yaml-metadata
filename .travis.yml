@@ -9,12 +9,13 @@ python:
   - "3.7"
 
 install:
+  - python setup.py develop
   - pip install coveralls -r requirements.txt
 
 script:
   - flake8
   - black --check ./
-  - coverage run --source full_yaml_metadata -m setup test
+  - coverage run --source full_yaml_metadata -m pytest
 
 after_success:
   - coveralls
