@@ -6,11 +6,17 @@ import yaml
 
 class FullYamlMetadataExtension(markdown.Extension):
     """Extension for parsing YAML metadata part with Python-Markdown."""
+    def __init__(self, **kwargs):
+        self.config = {}
+        super().__init__(**kwargs)
 
     def extendMarkdown(self, md: markdown.Markdown, *args, **kwargs):
+        md.registerExtension(self)
         md.Meta = None
         md.preprocessors.register(
-            FullYamlMetadataPreprocessor(md), "full_yaml_metadata", 1
+            FullYamlMetadataPreprocessor(md, self.getConfigs()),
+            "full_yaml_metadata",
+            1,
         )
 
 
@@ -20,6 +26,10 @@ class FullYamlMetadataPreprocessor(markdown.preprocessors.Preprocessor):
     YAML block is delimited by '---' at start and '...' or '---' at end.
 
     """
+
+    def __init__(self, md, config):
+        super().__init__(md)
+        self.config = config
 
     def run(self, lines: list) -> list:
         meta_lines, lines = self.split_by_meta_and_content(lines)
