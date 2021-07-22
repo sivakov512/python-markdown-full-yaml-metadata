@@ -26,6 +26,9 @@ jobs:
     - name: Lint
       run: flake8
 
+    - name: Check typings
+      run: mypy ./
+
     - name: Check formatting
       run: black --check ./
 
