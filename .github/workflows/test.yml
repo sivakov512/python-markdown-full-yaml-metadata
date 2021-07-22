@@ -12,10 +12,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Python 3.9
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
+
+    - uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
+        restore-keys: refs/heads/master-${{ github.workflow }}-${{ github.job }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
 
     - name: Install dependencies
       run: |
@@ -47,6 +53,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
+
+    - uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
+        restore-keys: refs/heads/master-${{ github.workflow }}-${{ github.job }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
 
     - name: Install dependencies
       run: |
