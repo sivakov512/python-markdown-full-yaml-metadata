@@ -29,10 +29,28 @@ categories:
 Lorem Ipsum is simply dummy text.
 """
 
-md = markdown.Markdown(extensions = ['full_yaml_metadata'])
+md = markdown.Markdown(extensions=['full_yaml_metadata']})
 md.convert(text) == '<p>Lorem Ipsum is simply dummy text.</p>'
 md.Meta == {'title': 'What is Lorem Ipsum?', 'categories': ['Lorem Ipsum', 'Stupid content']}
 ```
+
+By default the full YAML loader is used for parsing, which is insecure when
+used with untrusted user data. In such cases, you may want to specify a
+different loader such as [`yaml.SafeLoader`](https://msg.pyyaml.org/load) using
+the `extension_configs` keyword argument:
+
+```python
+import markdown
+import yaml
+
+md = markdown.Markdown(extensions=['full_yaml_metadata']}, extension_configs={
+        "full_yaml_metadata": {
+            "yaml_loader": yaml.SafeLoader,
+        },
+    },
+)
+```
+
 
 ## Development and contribution
 
