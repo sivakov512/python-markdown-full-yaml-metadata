@@ -1,2 +1,4 @@
 [flake8]
+exclude = .env,.direnv,.git,.mypy_cache,.pytest_cache,__pycache__
 inline-quotes = "
+max-line-length = 88

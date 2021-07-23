@@ -54,11 +54,8 @@ pytest
 * run linters
 ```bash
 flake8
+mypy ./
 black --check ./
 ```
 
 * feel free to contribute!
-
-## Python versions compatibility
-
-This plugin tested with python versions 3.6 and 3.7.

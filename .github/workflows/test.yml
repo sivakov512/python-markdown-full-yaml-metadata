@@ -1,0 +1,76 @@
+name: test
+
+on: [push]
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
+        restore-keys: refs/heads/master-${{ github.workflow }}-${{ github.job }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt --upgrade --upgrade-strategy eager
+        python setup.py develop
+
+    - name: Lint
+      run: flake8
+
+    - name: Check typings
+      run: mypy ./
+
+    - name: Check formatting
+      run: black --check ./
+
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
+        restore-keys: refs/heads/master-${{ github.workflow }}-${{ github.job }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install coveralls -r requirements.txt --upgrade --upgrade-strategy eager
+        python setup.py develop
+
+    - name: Test
+      run: pytest --cov=full_yaml_metadata
+
+    - name: Upload coverage
+      if: matrix.python-version == '3.9'
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      run: coveralls

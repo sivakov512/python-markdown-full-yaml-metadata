@@ -3,7 +3,9 @@
 *[~#]
 .cache
 .dir-locals.el
+.direnv
 .eggs
+.envrc
 .vimrc
 __pycache__
 build

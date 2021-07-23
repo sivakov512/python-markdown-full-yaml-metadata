@@ -1,12 +1,13 @@
-import typing
+from typing import Any, Dict, List, Tuple
 
-import markdown
 import yaml
+from markdown import Extension, Markdown
+from markdown.preprocessors import Preprocessor
 
 
-class FullYamlMetadataExtension(markdown.Extension):
+class FullYamlMetadataExtension(Extension):
     """Extension for parsing YAML metadata part with Python-Markdown."""
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs: Any):
         self.config = {
             "yaml_loader": [
                 yaml.FullLoader,
@@ -15,9 +16,9 @@ class FullYamlMetadataExtension(markdown.Extension):
         }
         super().__init__(**kwargs)
 
-    def extendMarkdown(self, md: markdown.Markdown, *args, **kwargs):
+    def extendMarkdown(self, md: Markdown, *args: Any, **kwargs: Any) -> None:
         md.registerExtension(self)
-        md.Meta = None
+        md.Meta = None  # type: ignore
         md.preprocessors.register(
             FullYamlMetadataPreprocessor(md, self.getConfigs()),
             "full_yaml_metadata",
@@ -25,26 +26,28 @@ class FullYamlMetadataExtension(markdown.Extension):
         )
 
 
-class FullYamlMetadataPreprocessor(markdown.preprocessors.Preprocessor):
+class FullYamlMetadataPreprocessor(Preprocessor):
     """Preprocess markdown content with YAML metadata parsing.
 
     YAML block is delimited by '---' at start and '...' or '---' at end.
 
     """
 
-    def __init__(self, md, config):
+    def __init__(self, md: Markdown, config: Dict[str, Any]):
         super().__init__(md)
         self.config = config
 
-    def run(self, lines: list) -> list:
+    def run(self, lines: List[str]) -> List[str]:
         meta_lines, lines = self.split_by_meta_and_content(lines)
 
         loader = self.config.get("yaml_loader", yaml.FullLoader)
         self.md.Meta = yaml.load("\n".join(meta_lines), Loader=loader)
         return lines
 
-    def split_by_meta_and_content(self, lines: list) -> typing.Tuple[list]:
-        meta_lines = []
+    def split_by_meta_and_content(
+        self, lines: List[str]
+    ) -> Tuple[List[str], List[str]]:
+        meta_lines: List[str] = []
         if lines[0] != "---":
             return meta_lines, lines
 
@@ -60,5 +63,5 @@ class FullYamlMetadataPreprocessor(markdown.preprocessors.Preprocessor):
         return meta_lines, lines
 
 
-def makeExtension(*args, **kwargs):
+def makeExtension(*args: Any, **kwargs: Any) -> FullYamlMetadataExtension:
     return FullYamlMetadataExtension(*args, **kwargs)
