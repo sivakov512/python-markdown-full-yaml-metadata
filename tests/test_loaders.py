@@ -14,7 +14,6 @@ num_comments: 5
 
 Lorem Ipsum is simply dummy text.
 """
-EXPECTED_BODY = "<p>Lorem Ipsum is simply dummy text.</p>"
 
 
 @pytest.mark.parametrize(
@@ -55,7 +54,7 @@ EXPECTED_BODY = "<p>Lorem Ipsum is simply dummy text.</p>"
         ],
     ),
 )
-def test_default_loader(
+def test_custom_loader(
     loader: typing.Any,
     expected_meta: typing.Dict[str, typing.Any],
 ) -> None:
@@ -68,5 +67,5 @@ def test_default_loader(
         },
     )
 
-    assert md.convert(SOURCE) == EXPECTED_BODY
+    md.convert(SOURCE)
     assert md.Meta == expected_meta
