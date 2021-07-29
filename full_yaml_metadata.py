@@ -1,4 +1,4 @@
-from typing import Any, List, Tuple
+from typing import Any, Dict, List, Tuple
 
 import yaml
 from markdown import Extension, Markdown
@@ -8,10 +8,22 @@ from markdown.preprocessors import Preprocessor
 class FullYamlMetadataExtension(Extension):
     """Extension for parsing YAML metadata part with Python-Markdown."""
 
+    def __init__(self, **kwargs: Any):
+        self.config = {
+            "yaml_loader": [
+                yaml.FullLoader,
+                "YAML loader to use. Default: yaml.FullLoader",
+            ],
+        }
+        super().__init__(**kwargs)
+
     def extendMarkdown(self, md: Markdown, *args: Any, **kwargs: Any) -> None:
+        md.registerExtension(self)
         md.Meta = None  # type: ignore
         md.preprocessors.register(
-            FullYamlMetadataPreprocessor(md), "full_yaml_metadata", 1
+            FullYamlMetadataPreprocessor(md, self.getConfigs()),
+            "full_yaml_metadata",
+            1,
         )
 
 
@@ -22,10 +34,15 @@ class FullYamlMetadataPreprocessor(Preprocessor):
 
     """
 
+    def __init__(self, md: Markdown, config: Dict[str, Any]):
+        super().__init__(md)
+        self.config = config
+
     def run(self, lines: List[str]) -> List[str]:
         meta_lines, lines = self.split_by_meta_and_content(lines)
 
-        self.md.Meta = yaml.load("\n".join(meta_lines), Loader=yaml.FullLoader)
+        loader = self.config.get("yaml_loader", yaml.FullLoader)
+        self.md.Meta = yaml.load("\n".join(meta_lines), Loader=loader)
         return lines
 
     def split_by_meta_and_content(
