@@ -7,6 +7,7 @@ from markdown.preprocessors import Preprocessor
 
 class FullYamlMetadataExtension(Extension):
     """Extension for parsing YAML metadata part with Python-Markdown."""
+
     def __init__(self, **kwargs: Any):
         self.config = {
             "yaml_loader": [
