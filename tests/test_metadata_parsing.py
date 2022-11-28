@@ -147,6 +147,36 @@ def test_without_metadata(source, expected_body):
     assert md.Meta is None
 
 
+@pytest.mark.parametrize(
+    "source, expected_meta, expected_body",
+    (
+        [
+            "---\n"
+            "title: What is Lorem Ipsum?\n"
+            "---        \n"
+            "Lorem Ipsum is simply dummy text.\n",
+            {"title": "What is Lorem Ipsum?"},
+            "<p>Lorem Ipsum is simply dummy text.</p>",
+        ],
+        [
+            "---     \n"
+            "title: What is Lorem Ipsum?\n"
+            "---\n"
+            "Lorem Ipsum is simply dummy text.\n",
+            {"title": "What is Lorem Ipsum?"},
+            "<p>Lorem Ipsum is simply dummy text.</p>",
+        ],
+    ),
+)
+def test_should_support_space_after_metadata_delimiter(
+    source, expected_meta, expected_body
+):
+    md = markdown.Markdown(extensions=["full_yaml_metadata"])
+
+    assert md.convert(source) == expected_body
+    assert md.Meta == expected_meta
+
+
 def test_meta_is_acceccable_before_parsing():
     md = markdown.Markdown(extensions=["full_yaml_metadata"])
 

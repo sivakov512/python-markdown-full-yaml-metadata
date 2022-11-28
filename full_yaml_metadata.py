@@ -49,12 +49,12 @@ class FullYamlMetadataPreprocessor(Preprocessor):
         self, lines: List[str]
     ) -> Tuple[List[str], List[str]]:
         meta_lines: List[str] = []
-        if lines[0] != "---":
+        if lines[0].rstrip(" ") != "---":
             return meta_lines, lines
 
         lines.pop(0)
         for line in lines:  # type: str
-            if line in ("---", "..."):
+            if line.rstrip(" ") in ("---", "..."):
                 content_starts_at = lines.index(line) + 1
                 lines = lines[content_starts_at:]
                 break
