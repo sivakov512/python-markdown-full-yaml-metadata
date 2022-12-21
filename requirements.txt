@@ -12,7 +12,7 @@ flake8-quotes==3.2.0
 iniconfig==1.1.1
 isort==5.9.2
 jedi==0.17.2
-Markdown==3.3.4
+Markdown==3.4.1
 mccabe==0.6.1
 mypy==0.910
 mypy-extensions==0.4.3
