@@ -20,14 +20,14 @@ setup(
     long_description_content_type="text/markdown",
     name="markdown-full-yaml-metadata",
     py_modules=["full_yaml_metadata"],
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     version="2.1.1",
     url="https://github.com/sivakov512/python-markdown-full-yaml-metadata",
     classifiers=[
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
     ],
 )
