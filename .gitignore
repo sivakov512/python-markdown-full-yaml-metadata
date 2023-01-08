@@ -1,12 +1,9 @@
-*.egg-info
 *.py[cod]
-*[~#]
 .cache
-.dir-locals.el
-.direnv
-.eggs
 .envrc
-.vimrc
+.local
+.venv
 __pycache__
-build
 dist
+poetry.lock
+./.idea

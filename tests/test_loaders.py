@@ -54,10 +54,7 @@ Lorem Ipsum is simply dummy text.
         ],
     ),
 )
-def test_custom_loader(
-    loader: typing.Any,
-    expected_meta: typing.Dict[str, typing.Any],
-) -> None:
+def test_custom_loader(loader: typing.Any, expected_meta: typing.Dict[str, typing.Any]) -> None:
     md = markdown.Markdown(
         extensions=["full_yaml_metadata"],
         extension_configs={
@@ -68,4 +65,4 @@ def test_custom_loader(
     )
 
     md.convert(SOURCE)
-    assert md.Meta == expected_meta
+    assert md.Meta == expected_meta  # type: ignore

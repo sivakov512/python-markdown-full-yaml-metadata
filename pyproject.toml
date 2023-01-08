@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "markdown-full-yaml-metadata"
+version = "2.1.0"  # VERSION_ANCHOR
+description = "YAML metadata extension for Python-Markdown"
+authors = ["Nikita Sivakov <sivakov512@icloud.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "full_yaml_metadata.py"}]
+homepage = "https://github.com/sivakov512/python-markdown-full-yaml-metadata"
+repository = "https://github.com/sivakov512/python-markdown-full-yaml-metadata"
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+markdown = "^3.4.1"
+pyyaml = "^6.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+flake8 = "^6.0.0"
+flake8-debugger = "^4.1.2"
+flake8-isort = "^6.0.0"
+flake8-print = "^5.0.0"
+flake8-quotes = "^3.3.2"
+isort = "^5.11.4"
+mypy = "^0.991"
+pytest = "^7.2.0"
+types-markdown = "^3.4.2.1"
+types-pyyaml = "^6.0.12.2"
+pytest-cov = "^4.0.0"
+coveralls = "^3.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+combine_as_imports = true
+include_trailing_comma = true
+line_length = 99
+multi_line_output = 3
+use_parentheses = true
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+no_implicit_optional = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unused_ignores = true
+implicit_reexport = false
+
+[tool.black]
+line-length = 100
