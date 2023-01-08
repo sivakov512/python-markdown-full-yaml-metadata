@@ -1,6 +1,6 @@
 # YAML metadata extension for [Python-Markdown](https://github.com/waylan/Python-Markdown)
 
-[![Build Status](https://travis-ci.org/sivakov512/python-markdown-full-yaml-metadata.svg?branch=master)](https://travis-ci.org/sivakov512/python-markdown-full-yaml-metadata)
+[![test](https://github.com/sivakov512/python-markdown-full-yaml-metadata/actions/workflows/test.yml/badge.svg)](https://github.com/sivakov512/python-markdown-full-yaml-metadata/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/sivakov512/python-markdown-full-yaml-metadata/badge.svg)](https://coveralls.io/github/sivakov512/python-markdown-full-yaml-metadata)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 [![Python versions](https://img.shields.io/pypi/pyversions/markdown-full-yaml-metadata.svg)](https://pypi.python.org/pypi/markdown-full-yaml-metadata)
@@ -56,26 +56,21 @@ md = markdown.Markdown(extensions=['full_yaml_metadata']}, extension_configs={
 
 ## Development and contribution
 
+First of all you should install [Poetry](https://python-poetry.org).
+
 * install project dependencies
 ```bash
-python setup.py develop
-```
-
-* install linting, formatting and testing tools
-```bash
-pip install -r requirements.txt
-```
-
-* run tests
-```bash
-pytest
+make install
 ```
 
 * run linters
 ```bash
-flake8
-mypy ./
-black --check ./
+make lint
+```
+
+* run tests
+```bash
+make test
 ```
 
 * feel free to contribute!
