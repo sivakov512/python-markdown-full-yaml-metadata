@@ -15,7 +15,7 @@ markdown = "^3.4.1"
 pyyaml = "^6.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.0.0"
+black = "^24.0.0"
 flake8 = "^7.0.0"
 flake8-debugger = "^4.1.2"
 flake8-isort = "^6.0.0"
