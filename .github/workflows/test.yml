@@ -31,13 +31,13 @@ jobs:
           echo "$HOME/.poetry/bin" >> $GITHUB_PATH
 
       - name: Cache Poetry cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/pip
           key: poetry-cache-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ env.MAIN_PYTHON_VERSION }}-${{ env.POETRY_VERSION }}
 
       - name: Cache packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .venv
           key: poetry-packages-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ env.MAIN_PYTHON_VERSION }}-${{ hashFiles('**/poetry.lock') }}
@@ -70,13 +70,13 @@ jobs:
           echo "$HOME/.poetry/bin" >> $GITHUB_PATH
 
       - name: Cache Poetry cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/pip
           key: poetry-cache-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ matrix.python-version }}-${{ env.POETRY_VERSION }}
 
       - name: Cache packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .venv
           key: poetry-packages-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
