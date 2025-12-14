@@ -2,9 +2,9 @@ name: test
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 env:
   POETRY_VIRTUALENVS_IN_PROJECT: "true"
@@ -41,7 +41,7 @@ jobs:
         with:
           path: .venv
           key: poetry-packages-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ env.MAIN_PYTHON_VERSION }}-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: poetry-packages-refs/heads/master-${{ github.workflow }}-${{ github.job }}-${{ env.MAIN_PYTHON_VERSION }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: poetry-packages-refs/heads/main-${{ github.workflow }}-${{ github.job }}-${{ env.MAIN_PYTHON_VERSION }}-${{ hashFiles('**/poetry.lock') }}
 
       - name: Install dependencies
         run: make install
@@ -80,7 +80,7 @@ jobs:
         with:
           path: .venv
           key: poetry-packages-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: poetry-packages-refs/heads/master-${{ github.workflow }}-${{ github.job }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: poetry-packages-refs/heads/main-${{ github.workflow }}-${{ github.job }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
       - name: Install dependencies
         run: make install
